@@ -5,7 +5,6 @@ import cv2
 
 pytesseract.tesseract_cmd = "C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
 
-# name path to image files
 image_frames = 'image_frames'
 
 def getScreenShots(video_source):
@@ -23,8 +22,6 @@ def getScreenShots(video_source):
         ret, frame = cap.read()
         if not ret:
             break
-
-        # name each frame and save as png
         name = './image_frames/frame' + str(idx) + '.png'
         print('Extracting frames...' + name)
         cv2.imwrite(name, frame)
@@ -35,8 +32,6 @@ def getScreenShots(video_source):
     cap.release()
     cv2.destroyAllWindows()
 
-# do image to text on each png
-
 def get_text():
     for i in os.listdir(image_frames):
         print(str(i))
@@ -44,8 +39,6 @@ def get_text():
         text = pytesseract.image_to_string(img, lang='eng')
         print(text)
 
-
-# main driver
 if __name__ == '__main__':
     video_source = 'a.mp4'
     getScreenShots(video_source)
