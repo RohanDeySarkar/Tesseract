@@ -48,7 +48,7 @@ def get_text():
 # main driver
 if __name__ == '__main__':
     video_source = 'a.mp4'
-    # getScreenShots(video_source)
+    getScreenShots(video_source)
     get_text()
 
 
